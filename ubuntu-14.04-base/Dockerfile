@@ -7,9 +7,3 @@ RUN apt-get -y install openjdk-7-jdk python-dev python-boto libcurl4-nss-dev lib
 
 # Add an unpriviliged user.
 RUN adduser --disabled-password --gecos '' mesos
-
-# Disable any tests failing on Ubuntu.
-ENV GTEST_FILTER -FsTest.FileSystemTableRead
-
-# Set working directory.
-WORKDIR mesos

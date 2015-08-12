@@ -4,9 +4,8 @@ FROM mesosbuild/jenkins:ubuntu-14.04-base
 RUN apt-get update
 RUN apt-get -y install gcc-4.8
 
-# Set working directory.
-WORKDIR mesos
-
 # Set environment variables.
-ENV CC gcc
-ENV CXX g++
+ENV CC gcc-4.8
+ENV CXX g++-4.8
+
+ENV GTEST_FILTER -SlaveRecoveryTest/0.*:MesosContainerizerSlaveRecoveryTest.*:CpuIsolatorTest/1.*:RevocableCpuIsolatorTest.*:LimitedCpuIsolatorTest.*:MemIsolatorTest/*.*:CgroupsAnyHierarchyTest.*:CgroupsAnyHierarchyWithCpuMemoryTest.*:CgroupsAnyHierarchyWithCpuAcctMemoryTest.*:CgroupsNoHierarchyTest.*:CgroupsAnyHierarchyWithFreezerTest.*:CgroupsAnyHierarchyMemoryPressureTest.*:MemoryPressureMesosTest.*:NamespacesPidIsolatorTest.*:UserCgroupIsolatorTest/*.*:ContainerizerTest.*:FsTest.*
